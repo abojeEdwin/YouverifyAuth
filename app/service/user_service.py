@@ -22,7 +22,8 @@ class User_Service:
         user = User()
         user.email = request.email
         user.password = hash_password(request.password)
-        return self.user_repository.create_user(user)
+        self.user_repository.create_user(user)
+        return user
 
 
     def login(self, request: User) -> str:
