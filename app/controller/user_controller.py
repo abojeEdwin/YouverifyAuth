@@ -30,7 +30,7 @@ def login():
         token = user_service.login(user)
         return jsonify({"token": token}), 200
     except (User_Not_Found_Exception, Invalid_Password_Exception) as e:
-        return jsonify({"error": str(e)}), 401
+        return jsonify({"error": str(e)}), 404
     except Exception as e:
         print(traceback.format_exc())
         return jsonify({"error": "An unexpected error occurred"}), 500
